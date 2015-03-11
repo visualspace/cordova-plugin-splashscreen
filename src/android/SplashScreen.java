@@ -209,7 +209,7 @@ public class SplashScreen extends CordovaPlugin {
                 splashDialog.setContentView(root);
                 splashDialog.setCancelable(false);
                 splashDialog.show();
-
+                splashDialog.getWindow().getDecorView().setSystemUiVisibility(View.SYSTEM_UI_FLAG_HIDE_NAVIGATION);
                 // Set Runnable to remove splash screen just in case
                 if (hideAfterDelay) {
                     final Handler handler = new Handler();
