@@ -102,11 +102,11 @@ public class SplashScreen extends CordovaPlugin {
     }
 	
 	private boolean isHideNavigationBar() {
-		return preferences.getBoolean("HideNavigationBar", false);
+		return preferences.getBoolean("SplashHideNavigationBar", false);
 	}
 	
 	private boolean isHideStatusBar() {
-		return preferences.getBoolean("HideStatusBar", false);
+		return preferences.getBoolean("SplashHideStatusBar", false);
 	}
 
     @Override
