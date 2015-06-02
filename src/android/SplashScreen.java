@@ -264,7 +264,7 @@ public class SplashScreen extends CordovaPlugin {
                 splashDialog.setCancelable(false);
                 if (isHideNavigationBar() || isHideStatusBar()) {
                     splashDialog.getWindow().getDecorView().setSystemUiVisibility(
-                    (isHideNavigationBar() ? View.SYSTEM_UI_FLAG_HIDE_NAVIGATION : 0) | (isHideNavigationBar() ? View.SYSTEM_UI_FLAG_FULLSCREEN : 0));
+                    (isHideNavigationBar() ? View.SYSTEM_UI_FLAG_HIDE_NAVIGATION : 0) | (isHideStatusBar() ? View.SYSTEM_UI_FLAG_FULLSCREEN : 0));
                 }
                 
                 splashDialog.show();
