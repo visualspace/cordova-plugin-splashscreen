@@ -100,6 +100,14 @@ public class SplashScreen extends CordovaPlugin {
     private boolean isMaintainAspectRatio () {
         return preferences.getBoolean("SplashMaintainAspectRatio", false);
     }
+    
+    private boolean isHideNavigationBar() {
+        return preferences.getBoolean("SplashHideNavigationBar", false);
+    }
+    
+    private boolean isHideStatusBar() {
+        return preferences.getBoolean("SplashHideStatusBar", false);
+    }
 
     @Override
     public void onPause(boolean multitasking) {
@@ -255,8 +263,12 @@ public class SplashScreen extends CordovaPlugin {
                 }
                 splashDialog.setContentView(splashImageView);
                 splashDialog.setCancelable(false);
+                if (isHideNavigationBar() || isHideStatusBar()) {
+                    splashDialog.getWindow().getDecorView().setSystemUiVisibility(
+                    (isHideNavigationBar() ? View.SYSTEM_UI_FLAG_HIDE_NAVIGATION : 0) | (isHideStatusBar() ? View.SYSTEM_UI_FLAG_FULLSCREEN : 0));
+                }
+                
                 splashDialog.show();
-
                 // Set Runnable to remove splash screen just in case
                 if (hideAfterDelay) {
                     final Handler handler = new Handler();
